@@ -1,7 +1,6 @@
 {
   "name": "taro-auth-modal",
   "version": "1.0.0",
-  "private": true,
   "description": "A auth modal for wechat mini-program",
   "author": "<phillzou@gmail.com>",
   "license": "MIT",
