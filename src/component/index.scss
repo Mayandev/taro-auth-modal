@@ -1,0 +1,83 @@
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+@mixin flex($dir: row, $main: start, $cross: flex-start) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $main;
+  align-items: $cross;
+}
+
+.auth_modal {
+
+  height: 100vh;
+  overflow: hidden;
+
+  .modal_mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 10000;
+    @include wh(100%, 100%);
+  }
+
+  .modal_container {
+    width: 568px;
+    padding: 30px 0;
+    @include flex(column, space-evenly, center);
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    z-index: 20000;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    background-color: #FFFFFF;
+
+    .modal_title-container {
+      @include flex(column, start, center);
+
+      .modal_title {
+        font-weight: bold;
+        letter-spacing: 2px;
+        color: #303030;
+        font-size: 36px;
+      }
+
+      .modal_desc {
+        font-weight: normal;
+        color: #aaaaaa;
+        font-weight: 28px;
+        margin-top: 20px;
+      }
+    }
+
+    .auth_image {
+      @include wh(362px, 300px);
+      margin: 30px 0;
+    }
+    
+    .auth_btn {
+      @include wh(464px, 82px);
+      @include flex(row, center, center);
+      box-shadow: 0 14px 40px 0 rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      line-height: 82px;
+    }
+    .auth_btn_hover {
+      box-shadow: none;
+    }
+    .modal_close {
+      position: absolute;
+      bottom: -102px;
+      left: 50%;
+      transform: translateX(-36px);
+      .close_icon {
+        @include wh(72px, 72px);
+      }
+    }
+  }
+
+}
