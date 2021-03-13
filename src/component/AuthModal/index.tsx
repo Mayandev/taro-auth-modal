@@ -2,8 +2,7 @@ import Taro, { onError } from '@tarojs/taro';
 import { View, Image, Button } from '@tarojs/components';
 
 import './index.scss';
-import close from './icon_close.png';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface IAuthModalProps {
   onClose?: () => void; // 关闭事件
@@ -39,7 +38,7 @@ function AuthModal(props: IAuthModalProps) {
   }, [props.visible])
 
   // 防止滚动穿透
-  const handleTouchMove = (e: any) => {s
+  const handleTouchMove = (e: any) => {
     e.preventDefault();
     e.stopPropagation();
   };
@@ -79,7 +78,7 @@ function AuthModal(props: IAuthModalProps) {
           {btnText || '授权登录'}
         </Button>
         <View className="modal_close" onClick={_onModalClose}>
-          <Image className="close_icon" src={close} />
+          <div className="close_icon" />
         </View>
       </View>
       <View className="modal_mask" />

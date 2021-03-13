@@ -3,11 +3,26 @@
   "version": "1.0.0",
   "private": true,
   "description": "A auth modal for wechat mini-program",
-  "templateInfo": {
-    "name": "default",
-    "typescript": true,
-    "css": "sass"
+  "author": "<phillzou@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "taro",
+    "小程序",
+    "授权"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Mayandev/taro-auth-modal.git"
   },
+  "browser": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "main": "dist/index.js",
+  "source": "src/component/AuthModal/index.tsx",
+  "types": "./@types/index.d.ts",
+  "files": [
+    "dist",
+    "@types"
+  ],
   "scripts": {
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",
@@ -26,14 +41,16 @@
     "dev:rn": "npm run build:rn -- --watch",
     "dev:qq": "npm run build:qq -- --watch",
     "dev:jd": "npm run build:jd -- --watch",
-    "dev:quickapp": "npm run build:quickapp -- --watch"
+    "dev:quickapp": "npm run build:quickapp -- --watch",
+    "build": "yarn run build:rollup && yarn run build:lib",
+    "build:lib": "tsc --project ./tsconfig.build.json --declaration --declarationDir types",
+    "build:rollup": "rollup --config ./config/rollup.config.js"
   },
   "browserslist": [
     "last 3 versions",
     "Android >= 4.1",
     "ios >= 8"
   ],
-  "author": "",
   "dependencies": {
     "@babel/runtime": "^7.7.7",
     "@tarojs/components": "3.1.3",
@@ -44,6 +61,9 @@
     "react": "^17.0.0"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^13.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^8.0.1",
     "@types/webpack-env": "^1.13.6",
     "@types/react": "^17.0.2",
     "@tarojs/mini-runner": "3.1.3",
@@ -55,6 +75,11 @@
     "eslint-plugin-react": "^7.8.2",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "rollup": "^2.23.1",
+		"rollup-plugin-copy": "^3.3.0",
+		"rollup-plugin-scss": "^2.5.0",
+		"rollup-plugin-typescript2": "^0.27.2",
+		"rollup-plugin-visualizer": "^4.1.0",
     "stylelint": "9.3.0",
     "@typescript-eslint/parser": "^4.15.1",
     "@typescript-eslint/eslint-plugin": "^4.15.1",
